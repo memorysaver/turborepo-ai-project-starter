@@ -1,0 +1,10 @@
+{
+	"name": "ai-service",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "poetry run uvicorn main:app --reload",
+		"start": "poetry run uvicorn main:app",
+		"install-deps": "poetry install"
+	}
+}
