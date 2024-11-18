@@ -5,15 +5,18 @@
   "license": "MIT",
   "scripts": {
     "install-deps": "turbo install-deps",
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui": "pnpm --filter @repo/ui ui"
+    "ui": "pnpm --filter @repo/ui ui",
+    "build": "dotenv -c -- turbo build",
+		"dev": "dotenv -c -- turbo dev --concurrency 15",
+		"lint": "biome lint ./apps/next_app",
+		"lint:fix": "biome check --fix --unsafe ./apps/next_app",
+		"clean": "turbo clean"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@biomejs/biome": "1.9.4 ",
+		"dotenv-cli": "^7.4.2",
     "prettier": "catalog:",
     "turbo": "2.1.1"
   },
